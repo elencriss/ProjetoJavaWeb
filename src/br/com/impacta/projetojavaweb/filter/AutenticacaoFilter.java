@@ -1,4 +1,4 @@
-package br.com.impacta.projetojavaweb.servlets.filter;
+package br.com.impacta.projetojavaweb.filter;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ import br.com.impacta.projetojavaweb.models.Usuario;
 		DispatcherType.FORWARD
 		}, urlPatterns = { "/sistema"} )
 
-public class FiltroDeAutenticacao implements Filter {
+public class AutenticacaoFilter implements Filter {
 
 	@Override
 	public void destroy() {
@@ -38,7 +38,7 @@ public class FiltroDeAutenticacao implements Filter {
 		if(usuario != null) {
 			chain.doFilter(request, response);
 		} else {
-			( (HttpServletResponse) response).sendRedirect("http://localhost:8080/ProjetoJavaWeb/login.html");
+			( (HttpServletResponse) response).sendRedirect("/ProjetoJavaWeb/login.html");
 		}
 	}
 
